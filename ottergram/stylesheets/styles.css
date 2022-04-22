@@ -1,0 +1,149 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: rgb(149, 194, 215);
+  font-size: 62.5%;
+}
+
+.main-header {
+  flex: 0 1 auto;
+}
+
+.logo-text {
+  background: white;
+  font-family: 'Rubik Bubbles', cursive;
+  font-size: 3.7em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbnail-item {
+  display: inline-block;
+  min-width: 120px;
+  max-width: 120px;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
+
+  transition: transform 133ms ease-in-out;
+}
+
+.thumbnail-item:hover {
+  transform: scale(1.2);
+}
+
+.thumbnail-item a {
+  text-decoration: none;
+  border: 1px solid rgb(100%, 100%, 100%);
+  border: 1px solid rgba(100%, 100%, 100%, 0.8);
+  display: block;
+}
+
+.thumbnail-list {
+  flex: 0 1 auto;
+  order: 2;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 20px 0;
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.thumbnail-image {
+  display: block;
+  width: 100%;
+}
+
+.thumbnail-title {
+  display: block;
+  margin: 0;
+  padding: 0.4em 1em;
+  background: rgb(96, 125, 139);
+  color: rgb(202, 238, 255);
+  font-size: 1.8em;
+}
+
+.detail-image-container {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-image-frame {
+  text-align: center;
+  position: relative;
+
+  transition: transform 333ms;
+}
+
+.is-tiny {
+  transform: scale(0.001);
+  transition: transform 0ms;
+}
+
+.detail-image {
+  width: 90%;
+}
+
+.detail-image-title {
+  color: white;
+  font-size: 4em;
+  text-shadow: rgba(0, 0, 0, 0.9) 1px 2px 9px;
+  font-family: 'Lobster', cursive;
+  position: absolute;
+  bottom: -0.3em;
+  left: 0.4em;
+}
+
+.hidden-detail .detail-image-container {
+  display: none;
+}
+
+.hidden-detail .thumbnail-list {
+  align-items: center;
+  flex-direction: column;
+}
+
+.hidden-detail .thumbnail-list::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hidden-detail .thumbnail-item {
+  max-width: 80%;
+}
+
+@media all and (min-width: 768px) {
+  .main-content {
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .thumbnail-list {
+    flex-direction: column;
+    order: 0;
+    padding: 0 35px;
+    margin-left: 2em;
+  }
+
+  .thumbnail-item {
+    max-width: 260px;
+  }
+
+  .thumbnail-item + .thumbnail-item {
+    margin-top: 2em;
+  }
+}
